@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SummonerMatch;
@@ -12,49 +11,43 @@ using SummonerMatch;
 namespace SummonerMatch.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231214171731_InitialCreate")]
+    [Migration("20240909213923_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
 
             modelBuilder.Entity("SummonerMatch.Equipo", b =>
                 {
                     b.Property<int>("IdEquipo")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEquipo"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("FechaCreacion")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("FechaExpiracion")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FkPartida")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorAdc")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorJungle")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorMid")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorSupport")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorTop")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdEquipo");
 
@@ -65,42 +58,46 @@ namespace SummonerMatch.Migrations
                 {
                     b.Property<int>("IdPartida")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPartida"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("FechaCreacion")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("FechaExpiracion")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("FkRango")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("FkTipoPartida")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("FkTorneo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("FkTorneo")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("FkUsuarioCreador")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("JugadorAdc")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorJungle")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorMid")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorSupport")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("JugadorTop")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NumJugadores")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Titulo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdPartida");
 
@@ -111,12 +108,10 @@ namespace SummonerMatch.Migrations
                 {
                     b.Property<int>("IdPosicion")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPosicion"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("NombrePosicion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdPosicion");
 
@@ -127,12 +122,10 @@ namespace SummonerMatch.Migrations
                 {
                     b.Property<int>("IdRango")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRango"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("NombreRango")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdRango");
 
@@ -143,12 +136,10 @@ namespace SummonerMatch.Migrations
                 {
                     b.Property<int>("IdRegion")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRegion"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("NombreRegion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdRegion");
 
@@ -159,12 +150,10 @@ namespace SummonerMatch.Migrations
                 {
                     b.Property<int>("IdTipoPartida")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTipoPartida"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("NombreTipo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdTipoPartida");
 
@@ -175,15 +164,13 @@ namespace SummonerMatch.Migrations
                 {
                     b.Property<int>("IdTorneo")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTorneo"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("CantidadEquipos")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Titulo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdTorneo");
 
@@ -194,39 +181,37 @@ namespace SummonerMatch.Migrations
                 {
                     b.Property<int>("IdUsuario")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUsuario"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Contrasena")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CorreoElectronico")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool?>("EsAdministrador")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("FkPosicion")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("FkRango")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("FkRegion")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("FkValoracion")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ImagenPerfil")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("NombreUsuario")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UsuarioLoL")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdUsuario");
 
@@ -237,15 +222,13 @@ namespace SummonerMatch.Migrations
                 {
                     b.Property<int>("IdValoracion")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdValoracion"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("CantidadValoraciones")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<float?>("PuntuacionMedia")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.HasKey("IdValoracion");
 

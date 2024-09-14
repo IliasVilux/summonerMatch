@@ -114,6 +114,10 @@ _TeamCity*
 # DotCover is a Code Coverage Tool
 *.dotCover
 
+# Ignorar la base de datos SQLite
+*.db
+*.sqlite
+
 # Visual Studio code coverage results
 *.coverage
 *.coveragexml

@@ -9,7 +9,7 @@
 }
 
 
-<div class="p-5 w-75 m-auto mt-4 d-flex justify-content-between" style="border-radius: 20px; background: linear-gradient(to left, rgba(6, 6, 6, 1) 30%, rgba(6, 6, 6, 0)), url('assets/Images/DetailWallpaper.jpg'); background-size: cover; background-position: center 35%;">
+<div class="p-5 w-75 m-auto mt-4 d-flex justify-content-between" style="border-radius: 20px; background: linear-gradient(to left, rgba(6, 6, 6, 1) 30%, rgba(6, 6, 6, 0)), url('~/assets/Images/DetailWallpaper.jpg'); background-size: cover; background-position: center 35%;">
     <h1 class="fw-bolder" style="color: #F0E6D2;">
         @Model.Titulo
     </h1>
@@ -24,7 +24,7 @@
                 <p style="color: #F0E6D2; width: 7ch;" class="m-0">
                     Top
                 </p>
-                <img class="ms-auto" width="40" src="~assets/images/posiciones/top.png" alt="">
+                <img class="ms-auto" width="40" src="~/assets/images/posiciones/top.png" alt="">
             </div>
 
             @if (@Model.JugadorTop == null && !imIn)
@@ -44,7 +44,7 @@
                 <p style="color: #F0E6D2; width: 7ch;" class="m-0">
                     Jungla
                 </p>
-                <img width="40" src="~assets/images/posiciones/jungle.png" alt="">
+                <img width="40" src="~/assets/images/posiciones/jungle.png" alt="">
             </div>
 
             @if (@Model.JugadorJungle == null && !imIn)
@@ -64,7 +64,7 @@
                 <p style="color: #F0E6D2; width: 7ch;" class="m-0">
                     Mid
                 </p>
-                <img width="40" src="~assets/images/posiciones/mid.png" alt="">
+                <img width="40" src="~/assets/images/posiciones/mid.png" alt="">
             </div>
 
             @if (@Model.JugadorMid == null && !imIn)
@@ -84,7 +84,7 @@
                 <p style="color: #F0E6D2; width: 7ch;" class="m-0">
                     Support
                 </p>
-                <img width="40" src="~assets/images/posiciones/support.png" alt="">
+                <img width="40" src="~/assets/images/posiciones/support.png" alt="">
             </div>
 
             @if (@Model.JugadorSupport == null && !imIn)
@@ -104,7 +104,7 @@
                 <p style="color: #F0E6D2; width: 7ch;" class="m-0">
                     Adc
                 </p>
-                <img width="40" src="~assets/images/posiciones/adc.png" alt="">
+                <img width="40" src="~/assets/images/posiciones/adc.png" alt="">
             </div>
 
             @if (@Model.JugadorAdc == null && !imIn)
